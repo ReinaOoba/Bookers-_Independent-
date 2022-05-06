@@ -1,2 +1,30 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container　px-5 px-sm-0">
+  <div class='row'>
+<!--左テンプレート-->
+    <div class='col-md-3'>
+      <%= render "user_info", user: @user %>
+    </div>
+<!--投稿一覧-->
+    <div class='col-md-8 offset-md-1'>
+      <h1>Books</h1>
+      <% @books.each do |book| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><%= image_tag user.get_profile_image(80,80) %></th>
+            <th><%= link_to book.title, book_path %></th>
+            <th><%= book.body %></th>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
