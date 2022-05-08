@@ -1,0 +1,40 @@
+
+  自分のユーザ詳細画面のテスト
+    表示の確認
+[32m      URLが正しい[0m
+[32m      投稿一覧のユーザ画像のリンク先が正しい[0m
+[31m      投稿一覧に自分の投稿のtitleが表示され、リンクが正しい (FAILED - 1)[0m
+[32m      投稿一覧に自分の投稿のopinionが表示される[0m
+[32m      他人の投稿は表示されない[0m
+    他人のユーザ詳細画面のテスト
+      表示の確認
+[32m        URLが正しい[0m
+[31m        投稿一覧のユーザ画像のリンク先が正しい (FAILED - 2)[0m
+[31m        投稿一覧に他人の投稿のtitleが表示され、リンクが正しい (FAILED - 3)[0m
+
+Failures:
+
+  1) [STEP2] ユーザログイン後のテスト 自分のユーザ詳細画面のテスト 表示の確認 投稿一覧に自分の投稿のtitleが表示され、リンクが正しい
+     [31mFailure/Error: expect(page).to have_link book.title, href: book_path(book)[0m
+     [31m  expected to find link "3927i" with href "/books/1" but there were no matches[0m
+     [36m# ./spec/system/02_after_login_spec.rb:322:in `block (4 levels) in <main>'[0m
+
+  2) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
+     [31mFailure/Error: expect(page).to have_link '', href: user_path(other_user)[0m
+     [31m  expected to find link "" with href "/users/1" but there were no matches[0m
+     [36m# ./spec/system/03_finishing_touches_spec.rb:277:in `block (5 levels) in <main>'[0m
+
+  3) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧に他人の投稿のtitleが表示され、リンクが正しい
+     [31mFailure/Error: expect(page).to have_link other_book.title, href: book_path(other_book)[0m
+     [31m  expected to find link "w14rl" with href "/books/2" but there were no matches[0m
+     [36m# ./spec/system/03_finishing_touches_spec.rb:280:in `block (5 levels) in <main>'[0m
+
+Finished in 31.46 seconds (files took 0.95525 seconds to load)
+[31m199 examples, 3 failures[0m
+
+Failed examples:
+
+[31mrspec ./spec/system/02_after_login_spec.rb:321[0m [36m# [STEP2] ユーザログイン後のテスト 自分のユーザ詳細画面のテスト 表示の確認 投稿一覧に自分の投稿のtitleが表示され、リンクが正しい[0m
+[31mrspec ./spec/system/03_finishing_touches_spec.rb:276[0m [36m# [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい[0m
+[31mrspec ./spec/system/03_finishing_touches_spec.rb:279[0m [36m# [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧に他人の投稿のtitleが表示され、リンクが正しい[0m
+

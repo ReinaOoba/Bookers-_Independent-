@@ -1,4 +1,4 @@
-<h1>User info</h1>
+<h2 class="mt-2">User info</h2>
 <table class="table">
   <tr><%= image_tag user.get_profile_image(100,100) %></tr>
   <tr>
@@ -10,20 +10,20 @@
     <th><%= user.introduction %></th>
   </tr>
 </table>
-<div class="row">
+<div class="row mt-3 mb-2">
   <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
 </div>
 
 <!--新規投稿-->
-<h1>New Book</h1>
+<h2>New book</h2>
   <%= form_with model: Book.new do |f| %>
     <p>Title</p>
-      <%= f.text_area :title %>
+      <%= f.text_field :title, class: "form-control"%>
     <p>Opinion</p>
-      <%= f.text_field :body %>
-    <%= f.submit class: 'btn btn-success' %>
+      <%= f.text_area :body, class: "form-control" %>
+    <%= f.submit class: 'btn btn-success mt-3' %>
   <% end %>
 
 
