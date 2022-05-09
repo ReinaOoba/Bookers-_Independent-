@@ -4,8 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :books
   has_one_attached :profile_image
+  has_many :books
+  has_many :favorites, dependent: :destroy
+  has_many :book_comments, dependent: :destroy
+
+  validates :email,        uniqueness: true
+  validates :name,         presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
+  validates :introduction, length: { maximum:50 }
 
   def get_profile_image(width, height)
     unless profile_image.attached?
@@ -15,7 +21,15 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  validates :email,        uniqueness: true
-  validates :name,         presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
-  validates :introduction, length: { maximum:50 }
+  def self.search_for(content, method)
+    if method == 'perfect'
+      User.where(name: content)
+    elsif method == 'forward'
+      User.where('name LIKE ?', "#{content}%")
+    elsif method == 'backward'
+      User.where('name LIKE ?', "%#{content}")
+    else
+      User.where('name LIKE ?', "%#{content}%")
+    end
+  end
 end
