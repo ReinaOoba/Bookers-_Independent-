@@ -1,6 +1,6 @@
 <div class="container">
   <% if @model == "user" %>
-    <h3>Users search for "<%= @content %>"</h3>
+    <h3>Users search for "<%= @content %>"（<%= @method_word %>）</h3>
     <%= render "users/user_index", users: @records %>
   <% elsif @model == "book" %>
     <h3>Books search for "<%= @content %>"</h3>
