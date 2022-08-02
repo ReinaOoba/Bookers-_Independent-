@@ -1,2 +1,2 @@
- $(".favorite-btn").html("<%= escape_javascript(render partial: 'favorites/favorite-btn', locals: {book: @book}) %>");
- $(".favorite-btn").html("<%= j(render 'favorites/favorite-btn', book: @book) %>");
+ $(".book-comment-btn").html("<%= escape_javascript(render partial: 'book_comments/c_form', locals: {book: @book}) %>");
+ $(".book-comment-btn").html("<%= j(render 'book_comments/c_index', book: @book) %>");
