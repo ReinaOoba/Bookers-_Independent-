@@ -7,6 +7,11 @@ class BookCommentsController < ApplicationController
     @comment.save
   end
 
+  def edit
+    @comment.save
+    redirect_to book_path(@comment.book)
+  end
+
   def destroy
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
   end
