@@ -25,7 +25,7 @@ class BookCommentsController < ApplicationController
     @user = current_user
     @comment = Comment.find(params[:id])
     unless @user == @comment.user
-      redirect_to book_path(@comment.book), notice: "You can't edit this comment"
+      redirect_to book_path(@comment.book), notice: "You can't do this action!"
     end
   end
 
