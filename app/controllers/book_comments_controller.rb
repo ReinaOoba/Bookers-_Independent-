@@ -11,7 +11,7 @@ class BookCommentsController < ApplicationController
 
   def edit
     @comment.save
-    redirect_to book_path(@comment.book)
+    redirect_to book_path(@comment.book), notice: "You　have updated this comment successfully."
   end
 
   def destroy
