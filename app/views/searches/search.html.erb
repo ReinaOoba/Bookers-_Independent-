@@ -1,9 +1,11 @@
 <div class="container">
-  <% if @model == "user" %>
+  <% if @model == "user" && @record.present? %>
     <h3>Users search for "<%= @content %>"（<%= @method_word %>）</h3>
     <%= render "users/user_index", users: @records %>
-  <% elsif @model == "book" %>
+  <% elsif @model == "book" && @record.present? %>
     <h3>Books search for "<%= @content %>"</h3>
     <%= render "books/book_index", books: @records %>
+  <% else %>
+    <h3>No date</h3>
   <% end %>
 </div>
