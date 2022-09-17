@@ -16,7 +16,7 @@ before_action :ensure_correct_user, only: [:edit, :update]
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updated user successfully."
+      redirect_to user_path(@user), notice: "You have updated your registration information successfully."
     else
       render :edit
     end
