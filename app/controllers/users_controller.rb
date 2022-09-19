@@ -31,7 +31,7 @@ before_action :ensure_correct_user, only: [:edit, :update]
   def ensure_correct_user
     @user = User.find(params[:id])
     unless @user == current_user
-      redirect_to user_path(current_user), notice: "You can't do this action!"
+      redirect_to user_path(@user), notice: "You can't do this action!"
     end
   end
 
